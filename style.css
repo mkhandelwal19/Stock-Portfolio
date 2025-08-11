@@ -1,0 +1,463 @@
+* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		min-height: 100vh;
+		padding: 20px;
+	}
+
+	.container {
+		max-width: 1600px;
+		margin: 0 auto;
+		background: rgba(255, 255, 255, 0.95);
+		border-radius: 20px;
+		padding: 30px;
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	}
+
+	h1 {
+		text-align: center;
+		color: #2c3e50;
+		margin-bottom: 10px;
+		font-size: 2.5em;
+		background: linear-gradient(45deg, #667eea, #764ba2);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.subtitle {
+		text-align: center;
+		color: #7f8c8d;
+		margin-bottom: 30px;
+		font-size: 1.1em;
+	}
+
+	.data-source-info {
+		background: linear-gradient(45deg, #28a745, #20c997);
+		color: white;
+		padding: 15px;
+		border-radius: 10px;
+		text-align: center;
+		margin-bottom: 20px;
+		font-weight: 600;
+	}
+
+	.filters {
+		background: #f8f9fa;
+		padding: 20px;
+		border-radius: 15px;
+		margin-bottom: 30px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 20px;
+	}
+
+	.filter-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.filter-group label {
+		font-weight: 600;
+		color: #2c3e50;
+		margin-bottom: 5px;
+	}
+
+	select, input {
+		padding: 10px;
+		border: 2px solid #e0e0e0;
+		border-radius: 8px;
+		font-size: 14px;
+		transition: border-color 0.3s;
+	}
+
+	select:focus, input:focus {
+		outline: none;
+		border-color: #667eea;
+	}
+
+	.btn {
+		background: linear-gradient(45deg, #667eea, #764ba2);
+		color: white;
+		border: none;
+		padding: 12px 24px;
+		border-radius: 25px;
+		cursor: pointer;
+		font-size: 16px;
+		font-weight: 600;
+		transition: transform 0.3s, box-shadow 0.3s;
+		grid-column: span 2;
+		justify-self: center;
+	}
+
+	.btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+	}
+
+	.btn:disabled {
+		background: #ccc;
+		cursor: not-allowed;
+		transform: none;
+	}
+
+	.section-title {
+		font-size: 1.8em;
+		font-weight: 700;
+		color: #2c3e50;
+		margin: 40px 0 20px 0;
+		padding: 15px 20px;
+		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+		border-radius: 15px;
+		border-left: 5px solid #667eea;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.section-subtitle {
+		font-size: 0.9em;
+		color: #7f8c8d;
+		font-weight: 400;
+	}
+
+	.potential-winners-section {
+		margin-bottom: 40px;
+	}
+
+	.winner-card {
+		background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+		color: white;
+		border-radius: 15px;
+		padding: 20px;
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s, box-shadow 0.3s;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.winner-card:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+	}
+
+	.winner-card::before {
+		content: '';
+		position: absolute;
+		top: -50px;
+		right: -50px;
+		width: 100px;
+		height: 100px;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 50%;
+	}
+
+	.winner-badge {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		background: rgba(255, 215, 0, 0.9);
+		color: #000;
+		padding: 6px 12px;
+		border-radius: 20px;
+		font-size: 0.8em;
+		font-weight: 700;
+	}
+
+	.bulk-orders-section {
+		margin-bottom: 40px;
+	}
+
+	.bulk-orders-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+		gap: 20px;
+	}
+
+	.bulk-order-card {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		border-radius: 15px;
+		padding: 20px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s, box-shadow 0.3s;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.bulk-order-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+	}
+
+	.bulk-order-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 15px;
+	}
+
+	.bulk-order-symbol {
+		font-size: 1.4em;
+		font-weight: 700;
+	}
+
+	.order-value-badge {
+		background: rgba(255, 255, 255, 0.2);
+		padding: 6px 12px;
+		border-radius: 20px;
+		font-size: 0.8em;
+		font-weight: 600;
+	}
+
+	.bulk-order-details {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+		margin-top: 15px;
+	}
+
+	.bulk-detail {
+		display: flex;
+		justify-content: space-between;
+		padding: 5px 0;
+	}
+
+	.recommendations {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 20px;
+		margin-top: 20px;
+	}
+
+	.stock-card {
+		background: white;
+		border-radius: 15px;
+		padding: 20px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s, box-shadow 0.3s;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.stock-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+	}
+
+	.stock-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(45deg, #667eea, #764ba2);
+	}
+
+	.stock-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 15px;
+	}
+
+	.stock-symbol {
+		font-size: 1.4em;
+		font-weight: 700;
+		color: #2c3e50;
+	}
+
+	.stock-exchange {
+		background: #e3f2fd;
+		color: #1976d2;
+		padding: 4px 8px;
+		border-radius: 12px;
+		font-size: 0.8em;
+		font-weight: 600;
+	}
+
+	.stock-name {
+		color: #7f8c8d;
+		margin-bottom: 15px;
+		font-size: 0.9em;
+	}
+
+	.metrics {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+	}
+
+	.metric {
+		display: flex;
+		justify-content: space-between;
+		padding: 8px 0;
+		border-bottom: 1px solid #f0f0f0;
+	}
+
+	.metric:last-child {
+		border-bottom: none;
+	}
+
+	.metric-label {
+		font-weight: 600;
+		color: #34495e;
+	}
+
+	.metric-value {
+		color: #2c3e50;
+	}
+
+	.recommendation-badge {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		padding: 6px 12px;
+		border-radius: 20px;
+		font-size: 0.8em;
+		font-weight: 600;
+	}
+
+	.buy { background: #d4edda; color: #155724; }
+	.hold { background: #fff3cd; color: #856404; }
+	.sell { background: #f8d7da; color: #721c24; }
+
+	.market-cap-sections {
+		margin-top: 30px;
+	}
+
+	.cap-section {
+		margin-bottom: 40px;
+	}
+
+	.large-cap { border-left-color: #28a745; }
+	.mid-cap { border-left-color: #ffc107; }
+	.small-cap { border-left-color: #dc3545; }
+	.potential-winners { border-left-color: #ffd700; }
+
+	.loading {
+		text-align: center;
+		padding: 40px;
+		color: #7f8c8d;
+	}
+
+	.spinner {
+		border: 3px solid #f3f3f3;
+		border-top: 3px solid #667eea;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+		animation: spin 1s linear infinite;
+		margin: 0 auto 20px;
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+
+	.no-data {
+		text-align: center;
+		padding: 60px;
+		color: #7f8c8d;
+	}
+
+	.stats-summary {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 20px;
+		margin-bottom: 30px;
+	}
+
+	.stat-card {
+		background: white;
+		padding: 20px;
+		border-radius: 15px;
+		text-align: center;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.stat-number {
+		font-size: 2em;
+		font-weight: 700;
+		color: #667eea;
+	}
+
+	.stat-label {
+		color: #7f8c8d;
+		margin-top: 5px;
+	}
+
+	.real-time-indicator {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		background: #28a745;
+		border-radius: 50%;
+		animation: pulse 2s infinite;
+		margin-right: 5px;
+	}
+
+	@keyframes pulse {
+		0% { opacity: 1; }
+		50% { opacity: 0.5; }
+		100% { opacity: 1; }
+	}
+
+	.error-message {
+		background: #f8d7da;
+		color: #721c24;
+		padding: 15px;
+		border-radius: 10px;
+		margin: 20px 0;
+		text-align: center;
+	}
+
+	.api-status {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		padding: 10px;
+		border-radius: 10px;
+		font-size: 0.8em;
+		font-weight: 600;
+		z-index: 1000;
+	}
+
+	.api-connected {
+		background: #d4edda;
+		color: #155724;
+	}
+
+	.api-disconnected {
+		background: #f8d7da;
+		color: #721c24;
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 20px;
+		}
+		
+		.filters {
+			grid-template-columns: 1fr;
+		}
+		
+		.btn {
+			grid-column: span 1;
+		}
+		
+		.recommendations {
+			grid-template-columns: 1fr;
+		}
+		
+		.bulk-orders-grid {
+			grid-template-columns: 1fr;
+		}
+	}

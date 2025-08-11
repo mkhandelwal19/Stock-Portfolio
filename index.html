@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Stock Screener Pro - Real Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="api-status" id="apiStatus">
+        <span class="real-time-indicator"></span>
+        Connecting to market data...
+    </div>
+
+    <div class="container">
+        <h1>🇮🇳 Indian Stock Screener Pro - Real Time</h1>
+        <p class="subtitle">Live NSE & BSE Data with AI-Powered Recommendations</p>
+        
+        <div class="data-source-info">
+            <span class="real-time-indicator"></span>
+            Real-time data from NSE/BSE • Last updated: <span id="lastUpdated">Loading...</span>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="exchange">Exchange</label>
+                <select id="exchange">
+                    <option value="all">All Exchanges</option>
+                    <option value="NSE">NSE</option>
+                    <option value="BSE">BSE</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="marketCap">Market Cap</label>
+                <select id="marketCap">
+                    <option value="all">All Cap</option>
+                    <option value="large">Large Cap (>₹20,000 Cr)</option>
+                    <option value="mid">Mid Cap (₹5,000-20,000 Cr)</option>
+                    <option value="small">Small Cap (<₹5,000 Cr)</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="sector">Sector</label>
+                <select id="sector">
+                    <option value="all">All Sectors</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="Banking">Banking & Financial</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="FMCG">FMCG</option>
+                    <option value="Energy">Energy & Power</option>
+                    <option value="Metals">Metals & Mining</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="minPE">Min P/E Ratio</label>
+                <input type="number" id="minPE" placeholder="e.g., 10" min="0">
+            </div>
+            
+            <div class="filter-group">
+                <label for="maxPE">Max P/E Ratio</label>
+                <input type="number" id="maxPE" placeholder="e.g., 25" min="0">
+            </div>
+            
+            <div class="filter-group">
+                <label for="minROE">Min ROE (%)</label>
+                <input type="number" id="minROE" placeholder="e.g., 15" min="0">
+            </div>
+            
+            <button class="btn" id="screenBtn" onclick="screenStocks()">
+                <span class="real-time-indicator"></span>
+                🔍 Analyze Live Market Data
+            </button>
+        </div>
+        
+        <div id="results">
+            <!-- Results will be populated here -->
+        </div>
+    </div>
+
+     <script src="script.js"></script>
+	 
+</body>
+</html>
